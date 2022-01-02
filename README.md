@@ -29,5 +29,7 @@
   + AJAX Client --> fetch (function that is built into browsers) or axios (3rd party package) are the most common
   + *Fetch keeps app size smaller*
   + *Axios is a bit easier to use in terms of the amount of code you need to write*
+    - Axios returns a promise
+    - Use .then(() => {callback to be invoked once data has been returned from API})
 
 ### Again, this is not my personal work! I followed along with the above course to create this application.

@@ -1,26 +1,25 @@
 import React from "react";
-// keep third-party imports above local component imports
-import axios from 'axios';
+import unsplash from '../api/unsplash';
 import SearchBar from "./SearchBar";
 
-const API_KEY = process.env.REACT_APP_API_KEY;
-const API_URL = 'https://api.unsplash.com/search/photos'
-
 class App extends React.Component {
+  state = { images: [] };
 
-  onSearchSubmit(term) {
-    axios.get(API_URL, {
-      params: { query: term },
-      headers: {
-        Authorization: `Client-ID ${API_KEY}`
-      }
-    });
+  onSearchSubmit = async (term) => {
+      const res = await unsplash.get('/search/photos', {
+        params: { query: term }
+      });
+    
+    this.setState({ images: res.data.results });
+    // @TODO Remove this console log!
+    console.log(res.data.results)
   }
 
   render() {
     return (
       <div className="ui container" style={{ marginTop: '15px'}}>
         <SearchBar onSubmit={this.onSearchSubmit}/>
+        Found: {this.state.images.length} images
       </div>
     )
   }
