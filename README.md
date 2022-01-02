@@ -26,6 +26,8 @@
   - Using arrow functions is the quickest fix to the above error; it automatically corrects the value of _this_
 - Props go down! They are passed down to child components of the parent.
 - __Fetching data in React from REST API__
-  + 
+  + AJAX Client --> fetch (function that is built into browsers) or axios (3rd party package) are the most common
+  + *Fetch keeps app size smaller*
+  + *Axios is a bit easier to use in terms of the amount of code you need to write*
 
 ### Again, this is not my personal work! I followed along with the above course to create this application.
